@@ -7,7 +7,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace WeddingPlanner.API
+namespace WeddingPlanner.Web
 {
     public class Program
     {

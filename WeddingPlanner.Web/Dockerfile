@@ -10,16 +10,16 @@ EXPOSE 443
 
 FROM mcr.microsoft.com/dotnet/sdk:5.0 AS build
 WORKDIR /src
-COPY ["WeddingPlanner.API/WeddingPlanner.API.csproj", "WeddingPlanner.API/"]
-RUN dotnet restore "WeddingPlanner.API/WeddingPlanner.API.csproj"
+COPY ["WeddingPlanner.Web/WeddingPlanner.Web.csproj", "WeddingPlanner.Web/"]
+RUN dotnet restore "WeddingPlanner.Web/WeddingPlanner.Web.csproj"
 COPY . .
-WORKDIR "/src/WeddingPlanner.API"
-RUN dotnet build "WeddingPlanner.API.csproj" -c Release -o /app/build
+WORKDIR "/src/WeddingPlanner.Web"
+RUN dotnet build "WeddingPlanner.Web.csproj" -c Release -o /app/build
 
 FROM build AS publish
-RUN dotnet publish "WeddingPlanner.API.csproj" -c Release -o /app/publish
+RUN dotnet publish "WeddingPlanner.Web.csproj" -c Release -o /app/publish
 
 FROM base AS final
 WORKDIR /app
 COPY --from=publish /app/publish .
-ENTRYPOINT ["dotnet", "WeddingPlanner.API.dll"]
+ENTRYPOINT ["dotnet", "WeddingPlanner.Web.dll"]
