@@ -23,6 +23,6 @@ namespace WeddingPlanner.Data.Entities
 
         public List<Guests> Guests { get; set; }
 
-        public Schedule Schedule { get; set;s }
+        public Schedule Schedule { get; set; }
     }
 }

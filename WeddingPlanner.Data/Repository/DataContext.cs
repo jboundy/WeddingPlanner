@@ -7,7 +7,15 @@ namespace WeddingPlanner.Data.Repository
     {
         public virtual DbSet<Users> Users { get; set; }
 
-        public virtual DbSet<Permissions> Permissions { get; set; }
+        public virtual DbSet<Budget> Budget { get; set; }
+
+        public virtual DbSet<Guests> Guests { get; set; }
+
+        public virtual DbSet<Images> Images { get; set; }
+
+        public virtual DbSet<Plan> Plan { get; set; }
+
+        public virtual DbSet<Schedule> Schedule { get; set;}
 
         public virtual DbSet<Roles> Roles { get; set; }
 
@@ -18,6 +26,10 @@ namespace WeddingPlanner.Data.Repository
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             
+        }
+        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+        {
+
         }
     }
 }
