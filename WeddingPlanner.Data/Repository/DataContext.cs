@@ -30,7 +30,7 @@ namespace WeddingPlanner.Data.Repository
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-
+            //todo: need to build out indexes for tables either here or annotations
         }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
