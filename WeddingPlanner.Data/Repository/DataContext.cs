@@ -3,8 +3,13 @@ using WeddingPlanner.Data.Entities;
 
 namespace WeddingPlanner.Data.Repository
 {
-    public class DataContext : DbContext
+    public class DataContext : DbContext, IDataContext
     {
+        public DataContext (DbContextOptions<DataContext> options) : base(options)
+        {
+
+        }
+
         public virtual DbSet<Users> Users { get; set; }
 
         public virtual DbSet<Budget> Budget { get; set; }
@@ -25,8 +30,9 @@ namespace WeddingPlanner.Data.Repository
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            
+
         }
+
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
 
