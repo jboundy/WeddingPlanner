@@ -1,14 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using WeddingPlanner.Data.Entities;
 using WeddingPlanner.Data.Repository;
+using WeddingPlanner.Services.Interfaces;
 
 namespace WeddingPlanner.Services
 {
-    public class PlanService
+    public class PlanService : IPlanService
     {
         private DataContext _context;
 

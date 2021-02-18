@@ -12,17 +12,16 @@ namespace WeddingPlanner.Web.Controllers
 {
     public class PlanController : Controller
     {
-        private DataContext _context;
+        private PlanService _planService;
 
-        public PlanController(DataContext context)
+        public PlanController(PlanService planService)
         {
-            _context = context;
+            _planService = planService;
         }
         // GET: PlanController
         public ActionResult Index()
         {
-            var planService = new PlanService(_context);
-            var data = planService.GetAllPlans();
+            var data = _planService.GetAllPlans();
             var vm = new PlanIndexViewModel
             {
                 budgetid = data.budgetid

@@ -5,6 +5,8 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using WeddingPlanner.Data.Repository;
+using WeddingPlanner.Services;
+using WeddingPlanner.Services.Interfaces;
 
 namespace WeddingPlanner.Web
 {
@@ -27,6 +29,9 @@ namespace WeddingPlanner.Web
                 .AddGoogle(googleOptions => { })
                 .AddTwitter(twitterOptions => {  })
                 .AddFacebook(facebookOptions => {  });
+
+            services.AddMvc();
+            services.AddScoped<IPlanService, PlanService>();
 
         }
 
